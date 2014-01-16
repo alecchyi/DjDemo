@@ -97,21 +97,37 @@ TEMPLATE_DIRS = (
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+        'django': {
+            
+            'foo': 'bar',
+        }
+    },
     'handlers': {
-        'users': {
+        'console':{
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,"logs/debug.log"),
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+#             'class': os.path.join(BASE_DIR,'logs/debug.log'),
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['users'],
-            'level': 'DEBUG',
-            'propagate': True,
+            'handlers': ['console'],
+            'propagate': False,
+            'level': 'INFO',
         },
-    },
+
+    }
 }
 
 TEMPLATE_CONTEXT_PROCESSORS = (
