@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
-{% include 'header.html' %}
+{% include "header.html" %}
 <body>
+	{% include "sitebanner.html" %}
 	<div class="wrapper">
-	{% include 'sitebanner.html' %}
-	<div>
-	 {% block content %} 
-	 {% endblock %}
-	 </div>
-	 </div>
+		<div>{% block content %}{% endblock %}</div>
+	</div>
 	<!-- start footer -->
-	{% include 'footer.html' %}
+	{% include "footer.html" %}
 	<!-- end footer -->
 </body>
 </html>

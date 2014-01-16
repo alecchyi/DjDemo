@@ -1,28 +1,26 @@
 <div class="newhomecontainer">
-<!-- topheader -->
-<div class="topheader1">
-<a href="/"><img src="http://www.neupals.com/images/websitelogo.png" alt=
-"ePals - where learners connect globally" class="logo"/></a>
-        <div id="epalsnav1" class="newnavbox">
-    <ul class="newnav">
-		{% if is_login == False %}
-        <li><a href="/index" class=""  title="Homepage">主页</a></li>
-		{% else %}
-    	<li><a href="/authhome" class=""  title="Homepage">主页</a></li>
-    	{% endif %}
-        <li><a href="/find-classroom.php" class="" title="Find Class">查找班级</a></li>
-    <li><a href="/find-project.php" class="" title="Find Project" >加入课题</a></li>
-    <li><a href="/host-project.php" class="" title="Start Project">新建课题</a></li>
-    
-    <li><a href="/digital/index.php" class="" title="Digital Library">数字图书馆</a></li>
+	<!-- topheader -->
+	<div class="topheader1">
+		<a href="/"><img src="/static/core/image/logo.png"
+			alt="Neupals - where learners connect globally" class="logo" /></a>
+		<div id="epalsnav1" class="newnavbox">
+			<ul class="newnav">
+				{% if is_login == False %}
+				<li><a href="/index" class="" title="Homepage">主页</a></li> 
+				{% else %}
+				<li><a href="/authhome" class="" title="Homepage">主页</a></li>
+				 {% endif %}
+				<li><a href="/find-classroom.php" class="" title="Find Class">查找班级</a></li>
+				<li><a href="/find-project.php" class="" title="Find Project">加入课题</a></li>
+				<li><a href="/host-project.php" class="" title="Start Project">新建课题</a></li>
 
-
-<li><a href="/support" title="Help">帮助</a></li>
-{% if is_login == True %}
-<li><a href="/logout" title="Log out">退出</a></li>
-{% endif %}
-</ul>
-</div>
-</div>
-<!-- end topheader -->
+				<li><a href="/digital/index.php" class="" title="Digital Library">数字图书馆</a></li>
+				<li><a href="/support" title="Help">帮助</a></li>
+				 {% if is_login == True %}
+				<li><a href="/logout" title="Log out">退出</a></li> 
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	<!-- end topheader -->
 </div>
