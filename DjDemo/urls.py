@@ -7,4 +7,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$','core.views.index'),
+    url(r'^login', 'core.view.login'),
+    
 )
