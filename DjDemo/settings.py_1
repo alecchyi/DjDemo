@@ -1,5 +1,5 @@
 """
-Django settings for new_neupals project.
+Django settings for DjDemo project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Application definition
 
@@ -60,10 +61,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'test_neupals',
-        'HOST': '127.0.0.1',
         'USER': 'root',
         'PASSWORD': 'root',
-    }
+        'HOST': '127.0.0.1',
+    },
+
 }
 
 # Internationalization
@@ -84,15 +86,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = (
-                 ("core_css",BASE_DIR+"/static/core/css"),
-                 ("core_js",BASE_DIR+"/static/core/js"),
-                 ("core_img",BASE_DIR+"/static/core/image"),
-                    )
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,'templates'),
+    ("core_js", os.path.join(BASE_DIR, "/static/core/js")),
+    ("core_css", os.path.join(BASE_DIR, "/static/core/css")),
+    ("core_img", os.path.join(BASE_DIR, "/static/core/image/")),
 )
 
 LOGGING = {
@@ -114,6 +111,11 @@ LOGGING = {
     },
 }
 
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
@@ -124,3 +126,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "core.views.global_context",
 )
+
+
+
