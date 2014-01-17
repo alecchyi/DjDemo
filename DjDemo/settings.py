@@ -71,6 +71,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
+DEFAULT_CHARSET = 'UTF-8'
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -85,11 +86,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    ("core_js", os.path.join(BASE_DIR, "static/core/js")),
+    os.path.join(BASE_DIR, "static/"),
     ("core_css", os.path.join(BASE_DIR, "static/core/css")),
-    ("core_img", os.path.join(BASE_DIR, "static/core/image/")),
+
 )
 
 LOGGING = {
