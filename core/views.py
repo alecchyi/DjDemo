@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+#-*- coding: UTF-8 -*-
 
 def index(request):
     

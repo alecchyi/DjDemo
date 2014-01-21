@@ -91,7 +91,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
     ("core_css", os.path.join(BASE_DIR, "static/core/css")),
-
+    ("core_js", os.path.join(BASE_DIR, "static/core/js")),
 )
 
 LOGGING = {
