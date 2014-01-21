@@ -56,18 +56,30 @@ WSGI_APPLICATION = 'DjDemo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test_neupals',
-        'USER': 'root',
-        'PASSWORD': 'alec',
-        'HOST': '127.0.0.1',
-    },
-
-}
-
+import sys
+if "test" in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'test_neupals',
+            'USER': 'root',
+            'PASSWORD': 'alec',
+            'HOST': '127.0.0.1',
+        },
+    
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'development_neupals',
+            'USER': 'root',
+            'PASSWORD': 'alec',
+            'HOST': '127.0.0.1',
+        },
+    
+    }
+    
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
