@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^$','core.views.index'),
     url(r'^login', 'core.views.login'),
     url(r'^detail', 'core.views.detail'),
+    url(r'^demo', 'core.views.demo'),
 ) 
 
 # if settings.DEBUG:

@@ -3,11 +3,14 @@ test cases
 '''
 from django.test import TestCase
 from forms import LoginForm
-from models import User
+from core.models import Member
 from django.test.client import Client
+import logging
 
+logger = logging.getLogger("django")
 
-class UserTest(TestCase):
+class MemberTest(TestCase):
+    
 
 
     def setUp(self):
@@ -24,15 +27,17 @@ class UserTest(TestCase):
 #         f = LoginForm(self.user)
 #         f.save()
         self.user['email'] = "cqa_jones@neupals.com"
-#         teacher = {'username': "teacher_01", 'password': '123456'}
-#         self.teacher = User.objects.create(teacher)
+        
+        self.users = Member.objects.all()
+        
+        
 
     def tearDown(self):
         self.user = {}
 
 
     def test_user_attr_cannot_empty(self):
-
+#         logger.debug("test_user_attr_cannot_empty")
         f = LoginForm({'username': 'ruby'})
         self.assertFalse(f.is_valid(), "username and password are empty")
         self.assertTrue(f["password"].errors)
@@ -61,7 +66,15 @@ class UserTest(TestCase):
     def test_detail_get_request(self):
         c = Client()
         rep = c.get("/login", follow=True)
-        self.assertIn('', rep.redirect_chain, "redirect to url is wrong")
+        logger.debug(self.users.count())
+#         self.assertRedirects(rep, "/", 200, 200)
+#         self.assertIn('', rep.redirect_chain, "redirect to url is wrong")
         self.assertEqual('ruby', rep.context['name'], "context")
-        self.assertEqual(rep.content, 'detail', "can't get detail info")
+#         self.assertEqual(rep.content, 'detail', "can't get detail info")
         
+    def test_member_create(self):
+        
+        t = {'username': "teacher_01", 'password': '12345611111111111111111111111111111111111111111111111122222222222222222222222222', 'status':0}
+        with self.assertRaises(Exception):
+            Member.objects.get_or_create(**t)
+

@@ -61,7 +61,7 @@ if "test" in sys.argv:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'test_neupals',
+            'NAME': 'test',
             'USER': 'root',
             'PASSWORD': 'alec',
             'HOST': '127.0.0.1',
