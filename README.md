@@ -61,6 +61,10 @@ But the pre-condition is you have a models.py
 6. custom assert function
     assert_xxx_xxxx()
 	
+	
+refs:
+	http://searchcode.com/codesearch/view/2290327
+	http://docs.python.org/2.7/library/unittest.html#unittest.TestCase
    
    
 
