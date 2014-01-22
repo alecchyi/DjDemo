@@ -1,9 +1,9 @@
 from django.db import models
 
 
-class User(models.Model):
+class Member(models.Model):
     '''
-    User
+    Member
     '''
     #Constants
     STATUS = {"normal":0, "deleted":2}
@@ -13,13 +13,13 @@ class User(models.Model):
     username = models.CharField(max_length=45);
     password = models.CharField(max_length=45);
     email = models.CharField(max_length=45);
-    status = models.SmallIntegerField();
+    status = models.SmallIntegerField(0);
     real_name = models.CharField(max_length=45);
     image_url = models.FilePathField(max_length=200);
-    birth = models.DateTimeField();
+    birth = models.DateTimeField(blank=True, null=True);
     reg_role = models.CharField(max_length=45);
-    age = models.SmallIntegerField();
-    gender = models.BooleanField(False);
+    age = models.SmallIntegerField(null=True);
+    gender = models.NullBooleanField(null=True);
     address = models.CharField(max_length=500);
     created_at = models.DateTimeField(auto_now=True);
     updated_at = models.DateTimeField(auto_now=True);
@@ -28,23 +28,17 @@ class User(models.Model):
     phone = models.CharField(max_length=45);
     cellphone = models.CharField(max_length=45);
     nickname = models.CharField(max_length=100);
-    domain = models.IntegerField(max_length=10)
-    row_id = models.IntegerField(max_length=10)
+    domain = models.IntegerField(100, max_length=10, null=True)
+    row_id = models.IntegerField(max_length=10, null=True)
     fname = models.CharField(max_length=50)
     lname = models.CharField(max_length=50)
-    quota = models.IntegerField(max_length=10)
-    last_login = models.DateTimeField()
-    rel_teacher = models.IntegerField(max_length=10)
-
-    def __init__(self):
-        '''
-        Constructor
-        '''
-        self.status = self.STATUS["normal"]
+    quota = models.IntegerField(max_length=10, null=True)
+    last_login = models.DateTimeField(null=True)
+    rel_teacher = models.IntegerField(max_length=10, null=True)
     
 class UserGroup(models.Model):
     '''
-        a set of  users
+        a set of  members
     '''
     
     GROUP_TYPE = {"country":1, "province":2, "city":3, "distict":4, "school":5, 
@@ -57,9 +51,6 @@ class UserGroup(models.Model):
     status = models.SmallIntegerField()
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
-    
-    def __init__(self):
-        self.status = self.STATUS["normal"]
         
     
 class GroupUserRelation(models.Model):
@@ -76,12 +67,12 @@ class GroupUserRelation(models.Model):
     role = models.SmallIntegerField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(Member)
 
         
 class Role(models.Model):
     '''
-        roles for all users
+        roles for all members
     '''
     
     STATUS = {"normal":0}
@@ -95,7 +86,7 @@ class Role(models.Model):
 class UserRole(models.Model):
     ''' relation between user and role '''
     
-    user = models.ForeignKey(User)
+    member = models.ForeignKey(Member)
     role = models.ForeignKey(Role)
     status = models.SmallIntegerField()
     created_at = models.DateTimeField(auto_now=True)
@@ -112,7 +103,7 @@ class Menu(models.Model):
     slug = models.CharField(max_length=45)     #slug for name, such as "authhome"
     menu_type = models.SmallIntegerField()
     status = models.SmallIntegerField()
-    user = models.ForeignKey(User)    #creator id
+    member = models.ForeignKey(Member)    #creator id
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now=True)
     
@@ -134,7 +125,7 @@ class Tag(models.Model):
 class Blog(models.Model):
     
     title = models.CharField(max_length=100)
-    user = models.ForeignKey(User)
+    member = models.ForeignKey(Member)
     content = models.TextField()
     blog_type = models.SmallIntegerField(max_length=2)
     status = models.SmallIntegerField(max_length=2)

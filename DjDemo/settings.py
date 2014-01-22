@@ -56,19 +56,34 @@ WSGI_APPLICATION = 'DjDemo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test_neupals',
-        'HOST': '127.0.0.1',
-        'USER': 'root',
-        'PASSWORD': 'root',
+import sys
+if "test" in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'test',
+            'USER': 'root',
+            'PASSWORD': 'alec',
+            'HOST': '127.0.0.1',
+        },
+    
     }
-}
-
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'development_neupals',
+            'USER': 'root',
+            'PASSWORD': 'alec',
+            'HOST': '127.0.0.1',
+        },
+    
+    }
+    
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
+DEFAULT_CHARSET = 'UTF-8'
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -83,21 +98,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-                 ("core_css",BASE_DIR+"/static/core/css"),
-                 ("core_js",BASE_DIR+"/static/core/js"),
-                 ("core_img",BASE_DIR+"/static/core/image"),
-                    )
+    os.path.join(BASE_DIR, "static/"),
+    ("core_css", os.path.join(BASE_DIR, "static/core/css")),
+    ("core_js", os.path.join(BASE_DIR, "static/core/js")),
+)
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,'templates'),
+	os.path.join(BASE_DIR, 'templates'),
 )
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
@@ -115,9 +131,9 @@ LOGGING = {
     'handlers': {
         'console':{
             'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
+            'class': 'logging.FileHandler',
             'formatter': 'simple',
-#             'class': os.path.join(BASE_DIR,'logs/debug.log'),
+             'class': os.path.join(BASE_DIR,'logs/debug.log'),
         },
     },
     'loggers': {
