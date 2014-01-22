@@ -3,7 +3,14 @@ DjDemo
 
 a django demo
 
+For Development
 
+	1) git clone git@github.com:alecchyi/DjDemo.git
+	2) cd DjDemo 
+	3) update database settings
+	3) python manage.py syncdb
+	4) python manage.py runserver 0.0.0.0:8000
+	
 For Testing in unittest
 
 1. create tests.py in your app, such as core/tests.py
