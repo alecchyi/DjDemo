@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from core.forms import LoginForm
 import logging
-from core.models import Member
+from core.models import Member, Blog
 
 #-*- coding: UTF-8 -*-
 
@@ -21,9 +21,15 @@ def login(request):
     return render(request,"login.html", context)
 
 def blogs(request):
-    
-    context = {}
+    blogs = Blog.objects.filter(status=0)    
+    context = {'blogs':blogs}
     return render(request,"blogs.html",context)
+
+def new_blog(request):
+    logger.debug("sssssssswwww new blog")
+    context = {}
+    return render(request,"new_blog.html", context)
+
 def detail(request):
     context = {"name": 'ruby'}
 #     return HttpResponse("detail")
