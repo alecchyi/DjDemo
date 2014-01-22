@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^login', 'core.views.login'),
     url(r'^detail', 'core.views.detail'),
     url(r'^demo', 'core.views.demo'),
+    url(r'^logout', 'core.views.logout'),
+    url(r'^blogs', 'core.views.blogs'),
 ) 
 
 # if settings.DEBUG:

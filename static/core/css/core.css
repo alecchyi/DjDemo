@@ -1,2 +1,112 @@
 /***************core.css**********************/
 body{}
+
+ul{
+ list-style:none;
+}
+
+.body{
+	display:block
+	min-height:600px;
+
+}
+
+.container{
+	display:block;
+	width:100%;
+	border:1px solid #ededed;
+	min-height:500px;
+	padding:5px 5px;
+}
+
+.header{
+	display:block;
+	width:100%;
+	border:1px solid #fff;
+	clear:both;
+}
+.footer{
+	display:block;
+	width:100%;
+	padding:10px 5px;
+	border:1px solid #ebebeb;
+	text-align:center;
+}
+
+.footer ul{
+	
+	width:900px;
+}
+.footer li{
+	width:200px;
+	line-height:30px;
+}
+
+.topheader1{
+	position:relative;
+	z-index:1000
+}
+.topheader1 img.logo{
+	vertical-align:middle;
+	padding:0
+}
+ul.topnav{
+	font-size:11px;
+	margin:-17px 9px 0 0;
+	right:0;
+	list-style:none;
+	position:absolute
+}
+ul.topnav li{
+	float:left;
+	display:block
+}
+ul.topnav li a{
+	display:block;
+	float:left;
+	color:#333;
+}
+.newnavbox.b_dyn ul.newnav{
+	width:775px !important
+}
+.newnavbox.b_dyn{
+	bottom:5px !important
+}
+.topheader1 .newnavbox{
+	right:58px;
+	position:absolute;
+	right:0;
+	bottom:5px
+}
+.topheader1 .newnavbox ul.newnav{
+	list-style:none;
+	margin:0;
+	padding:0
+}
+.topheader1 .newnavbox ul.newnav li{
+	display:block;
+	float:left
+}
+.topheader1 .newnavbox ul.newnav li a{
+	text-decoration:none !important;
+	display:block;padding:5px 10px;
+	float:left;
+	color:#333
+}
+.topheader1 .newnavbox ul.newnav li div.lc_moreoption{
+	text-decoration:none !important;
+	display:block;padding:5px 10px;
+	float:left;
+	color:#333;
+}
+div.lc_moreoption:hover{
+	cursor:pointer;
+}
+div #lc_moreoption-menu ul li a.b_hover{
+	text-decoration:underline !important
+}
+div.topheader1 div#epalsnav1.newnavbox ul.newnav li a.b_hover{
+	text-decoration:underline !important
+}
+
+

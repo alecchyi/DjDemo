@@ -133,7 +133,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'simple',
-             'class': os.path.join(BASE_DIR,'logs/debug.log'),
+             'filename': os.path.join(BASE_DIR,'logs/debug.log'),
         },
     },
     'loggers': {

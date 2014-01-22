@@ -80,5 +80,5 @@ class MemberTest(TestCase):
         with self.assertRaises(Exception):
             Member.objects.get(username='teacher_01')
         members = Member.objects.all()
-        self.assertEqual(members.count(), 1, "count is 1")
+        self.assertEqual(members.count(), 0, "count is 1")
 

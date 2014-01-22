@@ -1,24 +1,22 @@
-<div class="newhomecontainer">
+<div class="header">
 	<!-- topheader -->
 	<div class="topheader1">
 		<a href="/"><img src="{{STATIC_URL}}core/image/logo.png"
 			alt="Neupals - where learners connect globally" class="logo" /></a>
 		<div id="epalsnav1" class="newnavbox">
 			<ul class="newnav">
-				{% if is_login == False %}
-				<li><a href="/index" class="" title="Homepage">主页</a></li> 
-				{% else %}
-				<li><a href="/authhome" class="" title="Homepage">主页</a></li>
-				 {% endif %}
-				<li><a href="/find-classroom.php" class="" title="Find Class">查找班级</a></li>
-				<li><a href="/find-project.php" class="" title="Find Project">加入课题</a></li>
-				<li><a href="/host-project.php" class="" title="Start Project">新建课题</a></li>
+				<li><a href="/" class="" title="Homepage">主页</a></li> 
+				<li><a href="/blogs" class="" title="Blogs">博客</a></li>
+			<!--	<li><a href="/host-project.php" class="" title="Start Project">新建课题</a></li>
 
 				<li><a href="/digital/index.php" class="" title="Digital Library">数字图书馆</a></li>
 				<li><a href="/support" title="Help">帮助</a></li>
-				 {% if is_login == True %}
+			--!>
+			{% if is_login == True %}
 				<li><a href="/logout" title="Log out">退出</a></li> 
-				{% endif %}
+				{% else %}
+				<li><a href="/login" title="Log in">登录</a></li>
+				{% endif %} 
 			</ul>
 		</div>
 	</div>

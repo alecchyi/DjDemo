@@ -12,18 +12,18 @@ def index(request):
     
     form = LoginForm(initial = {'username': 'ruby'})
     context = {"form": form}
-#     teacher = {'user_name': "teacher_01", 'passwd': '123456'}
-#     m = Member()
-#     m.username= 'asdf'
-#     m.password = 'qwer'
-#     m.save()
     return render(request,"index.html", context)
 
 def login(request):
-    logger.debug("sssssss")
-    context = {"name": 'ruby'}
+    
+    form = LoginForm(initial = {'username':'ruby'})
+    context = {"name": 'ruby', 'form': form}
     return render(request,"login.html", context)
 
+def blogs(request):
+    
+    context = {}
+    return render(request,"blogs.html",context)
 def detail(request):
     context = {"name": 'ruby'}
 #     return HttpResponse("detail")
@@ -33,6 +33,13 @@ def demo(request):
     logger.debug("msg")
     
     return HttpResponseRedirect("/")
+
+def logout(request):
+    if request.session.has_key("user_id"):
+	 del request.session["user_id"]
+	
+    return HttpResponseRedirect("/")
+
 def global_context(request):
     context = {'is_login':False}
     return context
