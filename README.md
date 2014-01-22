@@ -25,6 +25,10 @@ But the pre-condition is you have a models.py
 	   t = {'username': "teacher_01", 'password': '12345611111111111111111111111111111111111111111111111122222222222222222222222222', 'status':0}
 	        with self.assertRaises(Exception) as cm:   #验证字段长度
 	            teacher = Member.objects.get_or_create(**t)
+	        with self.assertRaises(Exception):
+            	Member.objects.get(username='teacher_01')
+        	members = Member.objects.all()
+        	self.assertEqual(members.count(), 1, "count is 1")
    3）测试登录逻辑
 	   from django.test.client import Client
 	   c = Client()

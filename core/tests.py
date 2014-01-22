@@ -11,8 +11,7 @@ logger = logging.getLogger("django")
 
 class MemberTest(TestCase):
     
-
-
+    
     def setUp(self):
         self.user = {
                      'username': 'joneslin',
@@ -72,9 +71,14 @@ class MemberTest(TestCase):
         self.assertEqual('ruby', rep.context['name'], "context")
 #         self.assertEqual(rep.content, 'detail', "can't get detail info")
         
-    def test_member_create(self):
+    def test_member_create_and_query(self):
         
         t = {'username': "teacher_01", 'password': '12345611111111111111111111111111111111111111111111111122222222222222222222222222', 'status':0}
         with self.assertRaises(Exception):
             Member.objects.get_or_create(**t)
+        
+        with self.assertRaises(Exception):
+            Member.objects.get(username='teacher_01')
+        members = Member.objects.all()
+        self.assertEqual(members.count(), 1, "count is 1")
 
