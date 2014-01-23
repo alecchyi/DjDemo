@@ -3,6 +3,13 @@ DjDemo
 
 a django demo
 
+Functions:
+	1) log in and log out
+	2) write blog and display blog list
+	3) some configs and usage about init a new django project, such as static files , templates,
+		 url, log, and routes
+	4) testing 
+
 For Development
 
 	1) git clone git@github.com:alecchyi/DjDemo.git
