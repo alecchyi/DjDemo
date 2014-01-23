@@ -3,7 +3,7 @@
 YUI().use("node", function(Y) {
 
 	var id_title = Y.one("#id_title");
-	if (id_title == null) {
+	if (id_title != null) {
 		id_title.on("focus", function(e) {
 			id_title.addClass("focus_blog_title");
 		});
