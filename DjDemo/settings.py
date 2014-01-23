@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.0:8000', 'localhost:8000']
 
 
 # Application definition

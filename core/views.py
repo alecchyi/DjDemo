@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from core.forms import LoginForm, BlogForm
 import logging
 from core.models import Blog
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 #-*- coding: UTF-8 -*-
 
@@ -35,7 +36,17 @@ def login(request):
         return render(request,"login.html", context)
 
 def blogs(request):
-    blogs = Blog.objects.filter(status=1)    
+    items = Blog.objects.filter(status=1)
+    paginator = Paginator(items, 2)
+    try:
+        page = int(request.GET.get('page', 1))
+    except ValueError:
+        page = 1
+    try:
+        blogs = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        blogs = paginator.page(paginator.num_pages)
+    
     context = {'blogs':blogs}
     return render(request,"blogs.html",context)
 
@@ -45,7 +56,7 @@ def new_blog(request):
     
     context = {'form': BlogForm(initial = {'title':'input the title'})}
     flag = -1 
-    if request.POST:
+    if request.method == "POST":
         form = BlogForm(request.POST)
         if form.is_valid():
             flag = form.save(request)

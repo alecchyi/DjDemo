@@ -133,4 +133,6 @@ class Blog(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     description = models.CharField(max_length=500)
     tags = models.ManyToManyField(Tag)
+
+        
     

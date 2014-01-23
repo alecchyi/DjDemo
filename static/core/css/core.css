@@ -110,7 +110,7 @@ div.topheader1 div#epalsnav1.newnavbox ul.newnav li a.b_hover{
 }
 
 .blog_title{
-	color: #ededed;
+	color: #eeeeee;
 	width: 180px;
 }
 .blog_item{
@@ -120,4 +120,7 @@ div.topheader1 div#epalsnav1.newnavbox ul.newnav li a.b_hover{
 }
 .blog_item span{
 	padding:0px 5px;
+}
+.focus_blog_title{
+	color:#000;
 }
