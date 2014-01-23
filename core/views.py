@@ -67,8 +67,8 @@ def demo(request):
 
 def logout(request):
     if request.session.has_key("user_id"):
-	 del request.session["user_id"]
-	
+        del request.session["user_id"]
+
     return HttpResponseRedirect("/")
 
 def global_context(request):

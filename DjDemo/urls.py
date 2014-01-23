@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^new_blog', 'core.views.new_blog'),
 ) 
 
-# if settings.DEBUG:
-urlpatterns += patterns('',
+if settings.DEBUG:
+    urlpatterns += patterns('',
                              url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root': '../static'}),
                              )
