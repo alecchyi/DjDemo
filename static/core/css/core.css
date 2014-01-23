@@ -109,4 +109,15 @@ div.topheader1 div#epalsnav1.newnavbox ul.newnav li a.b_hover{
 	text-decoration:underline !important
 }
 
-
+.blog_title{
+	color: #ededed;
+	width: 180px;
+}
+.blog_item{
+	line-height:18px;
+	padding:2px 5px;
+	border-bottom: 1px dotted #efefef;
+}
+.blog_item span{
+	padding:0px 5px;
+}

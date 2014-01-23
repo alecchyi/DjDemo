@@ -124,7 +124,6 @@ LOGGING = {
     },
     'filters': {
         'django': {
-            
             'foo': 'bar',
         }
     },
@@ -140,7 +139,7 @@ LOGGING = {
         'django': {
             'handlers': ['console'],
             'propagate': False,
-            'level': 'INFO',
+            'level': 'DEBUG',
         },
 
     }

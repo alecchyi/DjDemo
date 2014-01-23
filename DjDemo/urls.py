@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^demo', 'core.views.demo'),
     url(r'^logout', 'core.views.logout'),
     url(r'^blogs', 'core.views.blogs'),
-    url(r'^blogs/new', 'core.views.new_blog'),
+    url(r'^new_blog', 'core.views.new_blog'),
 ) 
 
 # if settings.DEBUG:
