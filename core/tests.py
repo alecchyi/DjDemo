@@ -23,8 +23,6 @@ class MemberTest(TestCase):
                      'image_url': 'https://www.google.com.hk/images/srpr/logo11w.png',
                      'reg_role': 'teacher'
                      }
-#         f = LoginForm(self.user)
-#         f.save()
         self.user['email'] = "cqa_jones@neupals.com"
         
         self.users = Member.objects.all()
@@ -38,7 +36,7 @@ class MemberTest(TestCase):
     def test_user_attr_cannot_empty(self):
 #         logger.debug("test_user_attr_cannot_empty")
         f = LoginForm({'username': 'ruby'})
-        self.assertFalse(f.is_valid(), "username and password are empty")
+        self.assertFalse(f.is_valid(), "password and check_code are empty")
         self.assertTrue(f["password"].errors)
     
     def test_login_form(self):
@@ -80,5 +78,5 @@ class MemberTest(TestCase):
         with self.assertRaises(Exception):
             Member.objects.get(username='teacher_01')
         members = Member.objects.all()
-        self.assertEqual(members.count(), 0, "count is 1")
+        self.assertEqual(members.count(), 0, "count is 0")
 
