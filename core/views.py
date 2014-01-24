@@ -4,6 +4,7 @@ from core.forms import LoginForm, BlogForm
 import logging
 from core.models import Blog
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.contrib import messages
 
 #-*- coding: UTF-8 -*-
 
@@ -26,10 +27,11 @@ def login(request):
         form = LoginForm(request.POST)
         if form.is_valid():
             flag = form.login(request)
-            logger.debug(request.POST["password"])
         else:
             flag = 3
-    logger.debug(flag)
+            messages.info(request, "Form is invalid")
+    if flag == 1:
+        messages.info(request, "username or password is wrong")
     if flag == 2 or flag == 0:
         return HttpResponseRedirect("/")
     else:

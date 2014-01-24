@@ -1,6 +1,10 @@
 <div class="login_panel">
-{% if form.errors %}
-{{ form.errors }}<br/>
+{% if messages %}
+<ul>
+{% for msg in messages %}
+<li {% if msg.tags %}class="{{msg.tags}}" {% endif %}>{{msg}}</li>
+{% endfor %}
+</ul>
 {% endif %}
 <form action="/login" method="post">{% csrf_token %}
 {{ form.as_p }}
