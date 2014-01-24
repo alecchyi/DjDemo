@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.0:8000', 'localhost:8000']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -103,8 +103,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static/"),
-    ("core_css", os.path.join(BASE_DIR, "static/core/css")),
-    ("core_js", os.path.join(BASE_DIR, "static/core/js")),
 )
 
 TEMPLATE_DIRS = (
